@@ -1,0 +1,33 @@
+## NAMELIST FOR GEOPLOT NAMELIST! ##
+
+vars=1km AGL Reflectivity#,Mean sea level pressure,Geopotential#,Geopotential,#WRF Accumulated Precipitation
+time_step=2014-07-04 02:00:00,
+geo_box=-114.4,-107,31,37.85
+smooth_field=-1,4,3
+levels = 1000,500,500
+proj_kwargs = central_longitude:-108,central_latitude:34.17091
+projection lcc
+var_range = -15:80:1,1000:30000:8,4800:6000:50
+linspace=0,1,1
+contour_kwargs1 = linewidths:1.8,colors:k,linestyles:-,alpha:0.9
+vector_type=barb
+wind_kwargs=length:4.25,color:k
+barb_skip=7,14
+colormap=radar2
+plot_winds=0,0,0
+pfx =wrfoutput_post_roughness_POST_d03
+print_opts=1
+data_path=/p/work/tletcher/WRF_POST/
+shade_type=contourf
+
+extend=neither
+
+clabels=0,0,1
+clabfmt=%i,%i,%i
+clabbox=0,0,1
+
+valid_title=0
+
+stg4_folder=/p/work/tletcher/STAGE4_DATA/20140703/
+stg4_inc=06h
+pcp_accum_times=2014-07-03 12:00:00,2014-07-04 06:00:00

@@ -1,0 +1,17 @@
+ncolors = 15
+#  r    g    b
+164 161 112   # Tan/Brown (-20dBZ)
+194 196 162   # Tan (-10dBZ)
+159 166 179   # Gray (0 dBZ)
+107 121 164   # Blue Gray (10dBZ)
+ 70  90 153   # Dark blue (15dBZ)
+135 212 225   # Cyan(ish) (23dBZ)
+ 96 206  65   # Lime (30dBZ)
+ 40  92  26   # Dark Green (40dBZ)
+250 224  75   # Yellow (52dBZ)
+240 146  53   # Dark Orange (60dBz)
+240  44  31   # Bright Red (63dBZ)
+ 89  18  13   # Dark Red (70dBZ)
+255 255 255   # White (75 dBZ)
+208  50 220   ## Fuchsia (83dBZ)
+100  18 209   ## Indigo  (90dBZ)

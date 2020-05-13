@@ -1,0 +1,37 @@
+## NAMELIST FOR WRF REANALYSIS NAMELIST! ##
+
+vars=2 metre Temperature, ## NetCDF variable name.
+time_step=2014-07-04 03:00:00, ## Timestep
+geo_box=-115,-109,30,36 ## Plot boundaries in west,east,south,north (lon/lat coordinates)
+smooth_field=-1,3,3 ## Options to smooth the output (-1 = no smoothing, higher numbers = greater smoothing)
+levels = 1000,500,500 ## Pressure level to plot for each variable
+proj_kwargs = central_longitude:-111,central_latitude:30 ## Projection keywords
+projection lcc ## Which projection to use (llc = Lambert Conic Conformal)
+var_range = 10:45,5:80:21,4800:6000:50 ## Variable range (up to 3 "colon" separated values for each variable -> min:max:step/number of levels) max/min are required
+linspace=1,1,1 # use numpy linespace (1) or arange (0) to set variable levels.
+figsize = 12,8 ## Figure size
+contour_kwargs1 = linewidths:1.8,colors:b,linestyles:--,alpha:0.7 ## contour keyword arguments for the FIRST Non-shaded variable (usually the 2nd variable --> Overridden if plotting MSLP)
+vector_type=barb # What type of vectors to plot for wind field (barb,vector,streamline)
+wind_kwargs=length:4.5,color:k # Wind keyword arguments
+barb_skip=6,14 # Control thinning of wind vectors -> higher number = less vectors
+colormap=jet # Which colormap to use for the shaded (first) variable
+plot_winds=0,0,0 # Add winds to the subplot (1=yes, 0=no)
+pfx =  wrfoutput_post_chemPOST_d02,wrfoutput_post_chemPOST_d03 ## File name prefix, NOTE comma separation aids in plotting multiple nests on one figure.
+print_opts=1 # Flag to print out all of the variables available for plotting in the file when running the script (1 = yes, 0 = no)
+data_path=../WRF_POST/ #Path to netCDF data.
+shade_type=pcolormesh #How to do shading, us Matplotlib pcolormesh or contourf
+convert_temp = C ## if the variable is temperature, convert it from kelvin to C or F
+
+colorbar = 0, ## Automatically Plot a color bar for the shaded variable (1=yes,0=no)
+extend=neither ## Extend color bar option
+
+
+clabels=0,0,1 ## If a contoured (i.e., not shaded) variable, plot contour labels (1=yes,0=no)
+clabfmt=%i,%i,%i ## Format of contour labeling
+clabbox=0,0,1 ## Plot a white-box around each contour label.
+
+valid_title=0 ## Include a title indicating the model time-step
+
+## Special variables to control precipitation plotting.
+stg4_folder=../STAGE4_DATA/ ## if plotting stage 4 precipitation from grib2 files, data is located in this Path
+pcp_accum_times=2014-07-03 18:00:00,2014-07-04 16:00:00 ## time period to plot accumulated precipitation over.

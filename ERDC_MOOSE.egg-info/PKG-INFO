@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ERDC-MOOSE
+Version: 1.0.0
+Summary: A simple package designed to handle file I/O and geographic plotting for gridded meteorological datasets.
+Home-page: https://github.com/wxted/ERDC_MOOSE
+Author: Theodore Letcher
+Author-email: 
+License: UNKNOWN
+Description: # ERDC_MOOSE
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
