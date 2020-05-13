@@ -1,3 +1,0 @@
-MOOSEfunctions
-MOOSEplot
-MOOSEpost
