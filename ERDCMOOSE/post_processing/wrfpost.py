@@ -506,7 +506,7 @@ class WrfPost:
                     if int(self.namelist_dictionary['dust_scheme']) == 1:
                         print(" dust_scheme = 1 -> Mapping 2D Erodibility assuming GOCART Dust Scheme")
                         estring='GOCART'
-                        EROD=ncdata.variables['EROD'][0,:].squeeze()
+                        EROD=ncdata.variables['EROD'][:].squeeze()[0,:]
                     elif int(self.namelist_dictionary['dust_scheme']) == 3:
                         print(" dust_scheme = 3 -> Mapping 2D Erodibility assuming AFWA-GOCART Dust Scheme")
                         estring = 'AFWA-GOCART'
@@ -515,7 +515,7 @@ class WrfPost:
                         print(" dust_scheme = 4 -> Mapping 2D Erodibility assuming UoC Dust Scheme")
                         estring = 'UoC'
                         mask=np.ma.masked_less(np.sum(ncdata['EROD'][:].squeeze(),axis=0),0.0001).mask
-                        EROD=np.ma.masked_array(np.ones_like(ncdata['EROD'][0,:].squeeze()),mask=mask).filled(0.0)
+                        EROD=np.ma.masked_array(np.ones_like(ncdata['EROD'][:].squeeze()[0,:]),mask=mask).filled(0.0)
 
                     if '2D Erodibility' in outputdata.variables:
                         # HEY, it's already here!
@@ -1261,7 +1261,7 @@ class WrfPost:
                           'Orgain Carbon (Surface)': 'ug kg^-1 dry air', 'Total Dust (Surface)': 'ug m^-3',
                           'SO2 (Surface)': 'ppmv', 'Aerosol Optical Depth': '-','Ideal Dust':'g m^-2 s^-1',
                           'Total Dust Emission':'g m^-2 s^-1','Aerosol Visibility (Surface)':'km',
-                          'PM10 (Surface)': 'ug m^-3','Dust Scaling Factor':'-',
+                          'PM 10 (Surface)': 'ug m^-3','Dust Scaling Factor':'-',
                           'PM 2.5 (Surface)':'ug m^-3','DMS (Surface)':'ppmv',
                           'Sea Salt (Surface)':'ug kg^-1 dry air'}
 
@@ -1737,7 +1737,7 @@ class WrfPost:
                     print("Time to Get Sulfur Dioxide Concentration: %.2f seconds" % (
                         (end_prg_time - prg_time).total_seconds()))
 
-                if v == 'PM10 (Surface)':  # Do Surface PM10
+                if v == 'PM 10 (Surface)':  # Do Surface PM10
                     if not all(item in ncdata.variables for item in ['PM10']):
                         print("!!!WARNING!!!")
                         print("PM10 is not in this datafile, cannot do %s" % v)
